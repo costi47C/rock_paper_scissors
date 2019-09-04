@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rock, Paper, Scissors!</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    RPS project for TOP
+
+    <button onclick="score2()">Click for score</button>
+    <div id="demo">Play game</div>
+    <button onclick="game()">START!</button>
+
+    <script>
+        let rps = ['rock', 'paper', 'scissors'];
+        let playerScore = 0;
+        let compScore = 0;
+
+        function computerPlay() {
+            let compChoice = rps[Math.floor(Math.random() * rps.length)];
+            return compChoice;
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = prompt('rps?');
+            computerSelection = computerPlay();
+            playerSelection = playerSelection.toLowerCase();
+            if (playerSelection === computerSelection) {
+                console.log('Draw!');
+            } else if (playerSelection === 'rock' && (computerSelection === 'paper')) {
+                compScore++;
+                return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+
+            } else if (playerSelection === 'rock' && (computerSelection === 'scissors')) {
+                playerScore++;
+                return 'You won! ' + playerSelection + ' beats ' + computerSelection;
+
+            } else if (playerSelection === 'paper' && (computerSelection === 'scissors')) {
+                compScore++;
+                return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+
+            } else if (playerSelection === 'paper' && (computerSelection === 'rock')) {
+                playerScore++;
+                return 'You won! ' + playerSelection + ' beats ' + computerSelection;
+
+            } else if (playerSelection === 'scissors' && (computerSelection === 'rock')) {
+                compScore++;
+                return 'You lose! ' + computerSelection + ' beats ' + playerSelection;
+
+            } else if (playerSelection === 'scissors' && (computerSelection === 'paper')) {
+                playerScore++;
+                return 'You won! ' + playerSelection + ' beats ' + computerSelection;
+            }
+        }
+
+        function score() {
+            return console.log('Player score: ' + playerScore + ' ~~~~Computer score: ' + compScore);
+        }
+
+        function score2() {
+            div.textContent = `Player score:  ${playerScore}  ~~~~ Computer score:  ${compScore}`;
+        }
+
+        function game() {
+            for (let i = 0; i < 5; i++) {
+                playRound();
+                score();
+            }
+
+            if (playerScore > compScore) {
+                console.log('You won!' + playerScore + '~~~' + compScore )
+            } else if(playerScore < compScore){
+                console.log('You lost!' + playerScore + '~~~' + compScore)
+            } else {
+                console.log('DRAW!')
+            }
+        }
+
+        const div = document.querySelector('#demo');
+        
+    </script>
+
+    <script type="text/javascript" src="game.js"></script>
+</body>
+
+</html>

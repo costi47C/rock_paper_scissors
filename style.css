@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    color: rgb(67, 82, 67);
+    font-size: 5em;
+}
+
+.buttons-container {
+    margin: auto 120px;
+    padding: 20px 20px;
+}
+
+.btn {
+    background-color: rgb(67, 82, 67); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.result-container {
+    font-size: 26px;
+}
